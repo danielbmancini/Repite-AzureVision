@@ -21,15 +21,14 @@ BEGIN {
     } else {
         # Se este tempo é 'antes' ao tempo processado anteriormente
         if (timeValue < prevTime) {
-           
-            # Print the current line and start a new line
+           #printar linha e novo tempo
             print line > "fin4pontos.txt"
             line = sprintf("%02d:%02d", $1, $2)
         } else {
             sep = " "
              if (prevTime == 0)
                 sep = ""
-            # Append the current time to the existing line
+            # Anexar linha
             line = line sep sprintf("%02d:%02d", $1, $2)
         } 
         prevTime = timeValue
@@ -37,7 +36,7 @@ BEGIN {
     }
 }
 END {
-    # Print the last line if not empty
+    # Processamento da linha final
     NF > 0
     if (line != "") {
         print line > "fin4pontos.txt"
