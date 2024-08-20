@@ -13,6 +13,7 @@ import vertexai.preview.generative_models as generative_models
 import sys 
 
 def generate():
+  #Alterar aqui para seu projeto e localização do servidor
   vertexai.init(project="atomic-monument-429817-b0", location="us-central1")
   model = GenerativeModel(
     "gemini-1.5-flash-001",

@@ -16,10 +16,18 @@ São necessárias as chaves **Azure** `AI_SERVICE_KEY` e `AI_SERVICE_ENDPOINT` n
 Para o uso da **VertexAI**, é necessário autenticação com a ferramenta _gcloud_:
 
 ```bash
-gcloud auth login
+gcloud auth application-default login
 ```
+Referência: [SDK](https://cloud.google.com/sdk/docs/cheatsheet?hl=pt-br)
 
+Alterar a linha 17 em  [vertex.py](./processando-documentos-impressos/vertex.py) para definir o projeto gcp sendo usado:
+
+```python
+# Alterar aqui para seu projeto e localização do servidor
+vertexai.init(project="projeto", location="localização")
+```
 ## **pontos-de-funcionário**
+
 Aqui, tomamos as fotos dos pontos manuscritos dentro da pasta `pontos` e, com algumas suposições de estrutura, utilizamos apenas processamento de texto local (com _awk_ e _sed_) para processar o _output_ cru da **Azure**.
 
 Para começar, use o script shell/bash `parse.sh` como:
