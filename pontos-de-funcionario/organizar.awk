@@ -1,4 +1,5 @@
 #!/usr/bin/gawk -f
+#Transforma output.txt em fin4pontos.txt (tabelação)
 BEGIN {
     FS=":"
     OFS=""

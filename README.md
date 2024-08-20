@@ -35,11 +35,16 @@ python excel4.py (dia do mês para colar a partir) (nome arquivo) (nome da folha
 ```
 
 -----
+## **processando-documentos-impressos**
 
-## **Processamento de documentos impressos em má forma (neste caso e-mail)**
+### Processamento de documentos impressos em má forma (neste caso e-mail)
 
+#### Exemplo
 > _Nota:_ Todos os exemplos de e-mail contêm informações puramente fictícias.
+
+- [Documento exemplo](./processando-documentos-impressos/emails/julianaalmeida.jpeg) ➡️ [Preview do CSV](./processando-documentos-impressos/empresas.csv)
+
 
 O script `email.sh` processa os documentos na pasta `emails` e, de acordo com o prompt, extrai informações como CNPJ e cadastro em sistema para concatená-los em um arquivo `.csv`, que pode ser aberto nativamente em uma planilha Excel, por exemplo.
 
-O programa chama o ROC da **Azure** e envia os dados para o **VertexAI** para um processamento em nuvem rápido, e finalmente salva o conteúdo em `empresas.csv`.
+O programa chama o ROC da Azure e envia os dados para o VertexAI para um processamento em nuvem rápido, e finalmente salva o conteúdo em `empresas.csv`.

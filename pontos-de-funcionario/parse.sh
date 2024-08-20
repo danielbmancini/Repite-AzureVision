@@ -13,9 +13,14 @@ source ../myenv/bin/activate
 python ../read-text.py "$1" | 
     #remover primeiras 40 linhas de bloat (induzido)
     tail -n +40 |
+    #remover espaços
     sed 's/ //g' |
-    #reparar patterns do tipo ddddd, quando o ROC confunder ':' por um digito
-    sed -E 's/^([0-9]{2})([0-9]{1})([0-9]{2})$/\1:\3/' |
+    #remover datas (indicadores no papel)
+    sed -E 's/[0-9]{2}\/[0-9]{2}//g' |
+    #reparar patterns do tipo ddddd, quando o ROC confunder ':' por um digito, vírgula ou ponto
+    sed -E 's/^([0-9]{2})([0-9]{1}|.|,)([0-9]{2})$/\1:\3/'|
+    #capturar patterns do tipo dddd
+    sed 's/\([0-9][0-9]\)\([0-9][0-9]\)/\1:\2/' |
     #folgas e feriados -> 00:00. Padrões induzidos
     sed -E 's/[Ff][Oo][Ll]|[Ii][Aa][Dd][Oo]|[Ff][Ee][Rr][Ii][Aa][Ss]|[Ff][Oo]|[Gg][Aa]|[Ff][Ee][Rr]|[Dd][Ee][Ss]|[Cc][Aa][Nn]/00:00/' |
     #tomar horários para processamento em outra classe
