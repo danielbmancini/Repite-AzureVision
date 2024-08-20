@@ -11,6 +11,14 @@ Instale os requisitos com o comando:
 pip install -r requirements.txt
 ```
 
+São necessárias as chaves **Azure** `AI_SERVICE_KEY` e `AI_SERVICE_ENDPOINT` no arquivo de ambiente `.env`, que deve ser salvo na raiz do projeto.
+
+Para o uso da **VertexAI**, é necessário autenticação com a ferramenta _gcloud_:
+
+```bash
+gcloud auth login
+```
+
 ## **pontos-de-funcionário**
 Aqui, tomamos as fotos dos pontos manuscritos dentro da pasta `pontos` e, com algumas suposições de estrutura, utilizamos apenas processamento de texto local (com _awk_ e _sed_) para processar o _output_ cru da **Azure**.
 
@@ -21,7 +29,7 @@ chmod +x parse.sh
 ./parse.sh <arquivo>
 ```
 
-São necessárias as chaves **Azure** `AI_SERVICE_KEY` e `AI_SERVICE_ENDPOINT` no arquivo de ambiente `.env`, que deve ser salvo na raiz do projeto.
+
 
 ------
 
