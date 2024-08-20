@@ -5,9 +5,11 @@ Neste projeto, utiliza-se **Azure Computer Vision** + **VertexAI (gcloud)** para
 ## **Inicialização**
 Para as classes Python, é necessário um ambiente _myenv_ com os requisitos instaláveis. 
 
-Instale os requisitos com o comando:
+Instale os requisitos (linux) com o comando:
 
 ```bash
+python -m venv myenv
+source myenv/bin/activate
 pip install -r requirements.txt
 ```
 
