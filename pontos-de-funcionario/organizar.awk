@@ -17,14 +17,18 @@ BEGIN {
 
     # 00:00 representa FOLGA, conforme parse.sh
     if (timeValue == 0) {
-        line = line "\nFOLGA\n"
-        prevTime = timeValue
+        print line > "fin4pontos.txt"
+        line = "FOLGA"
+        hold = 0
     } else {
         # Se este tempo é 'antes' ao tempo processado anteriormente
         if (timeValue < prevTime) {
            #printar linha e novo tempo
             print line > "fin4pontos.txt"
-            line = sprintf("%02d:%02d", $1, $2)
+            if (hold == 0)
+                sepp = "\n"
+            line = sep sprintf("%02d:%02d", $1, $2)
+            hold = 1
         } else {
             sep = " "
              if (prevTime == 0)
